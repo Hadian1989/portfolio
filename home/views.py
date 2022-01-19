@@ -27,7 +27,9 @@ def contact(request):
         description = request.Post["description"]
         print("this is post")
         # print(name, email, phone, description)
-        instance=models.Contact(name=name,email=email,phone=phone,description=description)
+        instance = models.Contact(
+            name=name, email=email, phone=phone, description=description
+        )
         instance.save()
         print("The data wirtten to the db")
     # return HttpResponse("This is my contact page(/contact)")
