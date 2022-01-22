@@ -1,8 +1,10 @@
 from django.forms import models
 from django.shortcuts import render, HttpResponse
-from home.models import Contact
+from home.models import Contact, Project
 
 # Create your views here.
+
+
 def home(request):
     context = {"name": "ghazal", "course": "django/python"}
     return render(request, "home.html", context)
@@ -15,8 +17,9 @@ def about(request):
 
 
 def projects(request):
-    # return HttpResponse("This is my projects page(/projects)")
-    return render(request, "projects.html")
+    if request.method == "GET":
+        projects = Project.objects.all()
+    return render(request, "projects.html", {'projects':projects})
 
 
 def contact(request):

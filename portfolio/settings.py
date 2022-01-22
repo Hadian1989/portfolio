@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+import cloudinary
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -120,7 +121,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = "/static/"
-DEFAULT_AUTO_FIELD='django.db.models.AutoField'
-STATICFILES_DIRS=[
-    os.path.join(BASE_DIR,'static',)
+DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static',)
 ]
+cloudinary.config(
+    cloud_name="ghazalpro",
+    api_key="139575936881522",
+    api_secret="8V3hJPbvhawO6XSmCiqm34THC1o")

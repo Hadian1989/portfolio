@@ -4,48 +4,48 @@
 {% block title%} Projects {% endblock title%}
 
 {% block body %}
-  <div class="container my-2">
-    <h2 class="text-center my-3 py-3">
-      My Projects
-    </h2>
-    <div class="row">
-      <div class="col-md-4">
-        <div class="card" style="width: 18rem;">
-          <img class="card-img-top" src="https://source.unsplash.com/500x300/?developer,programmer,python"
-            alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title">Designer</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-              the card's content.</p>
-            <a href="#" class="btn btn-primary">Click for demo</a>
-          </div>
+<div class="container my-2">
+  <h2 class="text-center my-3 py-3">
+    My Projects
+  </h2>
+  <div class="row">
+    {% for project in projects %}
+    <div class="col-md-4">
+      <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="project.image"
+          alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">{{project.title}}</h5>
+          <p class="card-text">{{project.description | truncatewords:20}}.</p>
+          <a href="#" class="btn btn-primary">Click for demo</a>
         </div>
       </div>
-      <div class="col-md-4">
-        <div class="card" style="width: 18rem;">
-          <img class="card-img-top" src="https://source.unsplash.com/500x300/?programmer,java" alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title">Developer</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-              the card's content.</p>
-            <a href="#" class="btn btn-primary">Click for demo</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card" style="width: 18rem;">
-          <img class="card-img-top" src="https://source.unsplash.com/500x300/?developer,programmer,html"
-            alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title">Entertainer</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-              the card's content.</p>
-            <a href="#" class="btn btn-primary">Click for demo</a>
-          </div>
-        </div>
-      </div>
-
-
     </div>
+    {% endfor %}
+    <div class="col-md-4">
+      <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="https://source.unsplash.com/500x300/?programmer,java" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Developer</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+            the card's content.</p>
+          <a href="#" class="btn btn-primary">Click for demo</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="https://source.unsplash.com/500x300/?developer,programmer,html"
+          alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Entertainer</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+            the card's content.</p>
+          <a href="#" class="btn btn-primary">Click for demo</a>
+        </div>
+      </div>
+    </div>
+
   </div>
+</div>
 {% endblock body %}
