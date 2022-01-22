@@ -12,6 +12,6 @@ class ContactAdmin(admin.ModelAdmin):
 
 @admin.register(models.Project)
 class ContactAdmin(admin.ModelAdmin):
-    list_display = ("pk","title")
+    list_display = ("pk", "title")
     list_per_page = 20
     actions_selection_counter = True

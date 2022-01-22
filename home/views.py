@@ -19,7 +19,7 @@ def about(request):
 def projects(request):
     if request.method == "GET":
         projects = Project.objects.all()
-    return render(request, "projects.html", {'projects':projects})
+    return render(request, "projects.html", {"projects": projects})
 
 
 def contact(request):
@@ -29,9 +29,7 @@ def contact(request):
         phone = request.POST["phone"]
         description = request.POST["description"]
         print("this is post")
-        contact = Contact(
-            name=name, email=email, phone=phone, description=description
-        )
+        contact = Contact(name=name, email=email, phone=phone, description=description)
         print("The data wirtten to the db")
         contact.save()
     return render(request, "contact.html")

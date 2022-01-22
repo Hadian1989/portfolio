@@ -121,11 +121,15 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = "/static/"
-DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
+DEFAULT_AUTO_FIELD = "django.db.models.AutoField"
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static',)
+    os.path.join(
+        BASE_DIR,
+        "static",
+    )
 ]
 cloudinary.config(
     cloud_name="ghazalpro",
     api_key="139575936881522",
-    api_secret="8V3hJPbvhawO6XSmCiqm34THC1o")
+    api_secret="8V3hJPbvhawO6XSmCiqm34THC1o",
+)

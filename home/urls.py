@@ -1,10 +1,11 @@
 from django.contrib import admin
 from django.urls import path, include
 from home import views
+
 # Django admin header customization
-admin.site.site_header="Login to Developer Ghazaleh"
-admin.site.site_title="Welcome to Ghazaleh's dashboard"
-admin.site.index_title="Welcome to this portal"
+admin.site.site_header = "Login to Developer Ghazaleh"
+admin.site.site_title = "Welcome to Ghazaleh's dashboard"
+admin.site.index_title = "Welcome to this portal"
 
 urlpatterns = [
     path("", views.home, name="home"),
