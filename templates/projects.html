@@ -10,15 +10,16 @@
   </h2>
   <div class="row">
     {% for project in projects %}
-    <div class="col-md-3">
-      <div class="card" style="width: 18rem;">
-        <img class="card-img-top" src="{{project.image}}"
+    <div class="col-md-4 my-3">
+      <div class="card" style="width: 22rem;">
+        <img class="card-img-top" src="{{project.image}}" height="400",width="500"
           alt="Card image cap">
         <div class="card-body">
-          <h5 class="card-title">{{project.title}}</h5>
+          <h5 class="card-title">{{project.pk}}: {{project.title}}</h5>
           <p class="card-text">{{project.description | truncatewords:20}}.</p>
-          <a href="#" class="btn btn-primary">Click for demo</a>
+          <a href="{% url 'home:project-detail' project.slug %}" class="btn btn-primary">Click for demo</a>
         </div>
+        <div class="card-footer text-muted">{{project.status}}</div>
       </div>
     </div>
     {% endfor %}

@@ -1,3 +1,4 @@
+from django.utils import timezone
 from django.db import models
 from cloudinary.models import CloudinaryField
 
@@ -15,16 +16,17 @@ class Contact(models.Model):
 
 
 class Project(models.Model):
-    title = models.CharField(max_length=30)
+    title = models.CharField(max_length=20)
+    slug = models.SlugField(max_length=20, unique=True)
     description = models.TextField()
-    created_at = models.DateField(auto_now_add=True)
-    finished_at = models.DateField(null=True, blank=True)
-    Project_Status_CHOICES = (
-        ("inProgress", "in progress"),
-        ("Finished", "Finished"),
-        ("inComplete", "In Compelete"),
+    created_at = models.DateTimeField(auto_now_add=True)
+    finished_at = models.DateTimeField(default=timezone.now, blank=True)
+    STATUS_CHOICES = (
+        ("p", "in progress"),
+        ("F", "Finished"),
+        ("d", 'Draft')
     )
-    status = models.CharField(max_length=10, choices=Project_Status_CHOICES)
+    status = models.CharField(max_length=1, choices=STATUS_CHOICES)
     image = CloudinaryField("image", folder="/portfolio/projects")
 
     def __str__(self):

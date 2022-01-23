@@ -1,4 +1,5 @@
 from django.forms import models
+from django.http import request
 from django.shortcuts import render, HttpResponse
 from home.models import Contact, Project
 
@@ -22,6 +23,12 @@ def projects(request):
     return render(request, "projects.html", {"projects": projects})
 
 
+def project_detail(request,slug):
+    if request.method == "GET":
+        context={"project": Project.objects.get(slug=slug)}
+    return render(request, "project-detail.html", context)
+
+
 def contact(request):
     if request.method == "POST":
         name = request.POST["name"]
@@ -29,7 +36,8 @@ def contact(request):
         phone = request.POST["phone"]
         description = request.POST["description"]
         print("this is post")
-        contact = Contact(name=name, email=email, phone=phone, description=description)
+        contact = Contact(name=name, email=email,
+                          phone=phone, description=description)
         print("The data wirtten to the db")
         contact.save()
     return render(request, "contact.html")
