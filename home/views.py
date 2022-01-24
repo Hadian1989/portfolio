@@ -39,9 +39,14 @@ def contact(request):
         email = request.POST["email"]
         phone = request.POST["phone"]
         description = request.POST["description"]
-        print("this is post")
         contact = Contact(name=name, email=email,
                           phone=phone, description=description)
-        print("The data wirtten to the db")
         contact.save()
     return render(request, "contact.html")
+
+
+def search(request):
+    if request.method == "GET":
+        keyword = request.GET["keyword"]
+        context = {"keyword": "you are looking for "+keyword}
+    return render(request, "home.html", context)
