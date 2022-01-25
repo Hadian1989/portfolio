@@ -20,8 +20,8 @@ class Project(models.Model):
     title = models.CharField(max_length=20)
     slug = models.SlugField(max_length=20, unique=True)
     description = models.TextField()
-    created_at = models.DateTimeField(auto_now_add=True)
-    finished_at = models.DateTimeField(default=timezone.now, blank=True)
+    created_at = models.DateField()
+    finished_at = models.DateField(default=timezone.now, blank=True)
     STATUS_CHOICES = (
         ("p", "in progress"),
         ("F", "Finished"),
@@ -38,19 +38,26 @@ class Job(models.Model):
     title = models.CharField(max_length=30)
     description = models.TextField()
     company = models.CharField(max_length=30)
-    started_at = models.DateTimeField(auto_now_add=True)
-    finished_at = models.DateTimeField(null=True, blank=True)
+    started_at = models.DateField()
+    finished_at = models.DateField(null=True, blank=True)
+    STATUS_CHOICES = (
+        ("o", "Ongoing"),
+        ("F", "Finished"),
+    )
+    status = models.CharField(max_length=1, choices=STATUS_CHOICES)
 
     def __str__(self):
         return self.title
 
-
+# https://res.cloudinary.com/ghazalpro/image/upload/v1642853899/portfolio/slider16_btgbht.jpg
+# https://res.cloudinary.com/ghazalpro/image/upload/v1642853880/portfolio/slider11_egc68p.jpg
+# https://res.cloudinary.com/ghazalpro/image/upload/v1642853903/portfolio/slider12_v3o4rr.jpg
 class Education(models.Model):
     title = models.CharField(max_length=30)
     description = models.TextField()
     gpa = models.FloatField(validators=[MinValueValidator(10.0),MaxValueValidator(20.0)])
     university = models.CharField(max_length=30)
-    started_at = models.DateTimeField(auto_now_add=True)
+    started_at = models.DateTimeField()
     finished_at = models.DateTimeField(null=True, blank=True)
 
     def __str__(self):

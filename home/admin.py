@@ -11,7 +11,21 @@ class ContactAdmin(admin.ModelAdmin):
 
 
 @admin.register(models.Project)
-class ContactAdmin(admin.ModelAdmin):
+class ProjectAdmin(admin.ModelAdmin):
+    list_display = ("pk", "title")
+    list_per_page = 20
+    actions_selection_counter = True
+
+
+@admin.register(models.Job)
+class JobAdmin(admin.ModelAdmin):
+    list_display = ("pk", "title")
+    list_per_page = 20
+    actions_selection_counter = True
+
+
+@admin.register(models.Education)
+class EducationAdmin(admin.ModelAdmin):
     list_display = ("pk", "title")
     list_per_page = 20
     actions_selection_counter = True
