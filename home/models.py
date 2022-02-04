@@ -21,13 +21,13 @@ class Project(models.Model):
     slug = models.SlugField(max_length=20, unique=True)
     description = models.TextField()
     created_at = models.DateField()
-    finished_at = models.DateField(default=timezone.now, blank=True)
+    finished_at = models.DateField(default=timezone.now, blank=True,null=True)
     STATUS_CHOICES = (
-        ("p", "in progress"),
-        ("F", "Finished"),
-        ("d", 'Draft')
+        ("In Progress", "in progress"),
+        ("Accomplished", "Finished"),
+        ("Pending", 'Draft')
     )
-    status = models.CharField(max_length=1, choices=STATUS_CHOICES)
+    status = models.CharField(max_length=15, choices=STATUS_CHOICES)
     image = CloudinaryField("image", folder="/portfolio/projects")
 
     def __str__(self):
@@ -52,13 +52,24 @@ class Job(models.Model):
 # https://res.cloudinary.com/ghazalpro/image/upload/v1642853899/portfolio/slider16_btgbht.jpg
 # https://res.cloudinary.com/ghazalpro/image/upload/v1642853880/portfolio/slider11_egc68p.jpg
 # https://res.cloudinary.com/ghazalpro/image/upload/v1642853903/portfolio/slider12_v3o4rr.jpg
+
+
 class Education(models.Model):
     title = models.CharField(max_length=30)
     description = models.TextField()
-    gpa = models.FloatField(validators=[MinValueValidator(10.0),MaxValueValidator(20.0)])
+    gpa = models.FloatField(
+        validators=[MinValueValidator(10.0), MaxValueValidator(20.0)])
     university = models.CharField(max_length=30)
     started_at = models.DateTimeField()
     finished_at = models.DateTimeField(null=True, blank=True)
+
+    def __str__(self):
+        return self.title
+
+
+class Skill(models.Model):
+    title = models.CharField(max_length=30)
+    competency = models.CharField(max_length=30)
 
     def __str__(self):
         return self.title

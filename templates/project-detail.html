@@ -8,7 +8,8 @@
     <div class="col-md-10">
         <div class="card">
             <img class="card-img-top" src="{{project.image}}" alt="Card image cap" height="400" width="400">
-            <small>{{project.finished_at}}</small>
+            <small class="mt-2 mx-2">Started at: {{project.started_at}}</small>
+            <small class="my-2 mx-2">Finished at: {{project.finished_at}}</small>
             <div class="card-body">
                 <h5 class="card-title">{{project.title}}</h5>
                 <p class="card-text">{{project.description}}.</p>

@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from home.models import Contact, Education, Job, Project
+from home.models import Contact, Education, Job, Project, Skill
 
 # Create your views here.
 
@@ -10,10 +10,18 @@ def home(request):
     # return HttpResponse("This is my home page(/)")
 
 
-def resume(request):
-    context = {"jobs": Job.objects.all,
-               "educations": Education.objects.all}
-    return render(request, "resume.html", context)
+
+
+def educatiion(request):
+    context = {
+        "educations": Education.objects.all}
+    return render(request, "education.html", context)
+
+
+def skills(request):
+    context = {"skills": Skill.objects.all,
+               }
+    return render(request, "skills.html", context)
 
 
 def about(request):

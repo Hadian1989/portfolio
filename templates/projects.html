@@ -12,8 +12,7 @@
     {% for project in projects %}
     <div class="col-md-4 my-3">
       <div class="card" style="width: 22rem;">
-        <img class="card-img-top" src="{{project.image}}" height="400",width="500"
-          alt="Card image cap">
+        <img class="card-img-top" src="{{project.image}}" height="400" ,width="500" alt="Card image cap">
         <div class="card-body">
           <h5 class="card-title">{{project.pk}}: {{project.title}}</h5>
           <p class="card-text">{{project.description | truncatewords:20}}.</p>
@@ -23,7 +22,9 @@
       </div>
     </div>
     {% endfor %}
-
   </div>
+  </br>
+  </br>
+  <hr class="m-0" />
 </div>
 {% endblock body %}
