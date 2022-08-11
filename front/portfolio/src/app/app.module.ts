@@ -6,7 +6,7 @@ import { HomeComponent } from './home/home.component';
 import { LoadingComponent } from './loading/loading.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { MainModule } from './modules/main/main.module';
-import { AuthModule } from './modules/auth/auth.module';
+import { AuthModule } from './modules/authentication/auth.module';
 import { RoutingModule } from './modules/routing/routing.module';
 import { FooterComponent } from './footer/footer.component';
 
