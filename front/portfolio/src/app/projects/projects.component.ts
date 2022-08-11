@@ -7,7 +7,7 @@ import { IProject } from '../models/IProject';
   styleUrls: ['./projects.component.css'],
 })
 export class ProjectsComponent implements OnInit {
-
+  projects: IProject[];
 
   constructor() {}
 
