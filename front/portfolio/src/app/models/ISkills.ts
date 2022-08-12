@@ -1,4 +1,4 @@
-export interface ISkills {
+export interface ISkill {
   pk: number;
   title: string;
 }

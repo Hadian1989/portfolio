@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ISkills } from '../models/ISkills';
+import { ISkill } from '../models/ISkills';
 
 @Component({
   selector: 'app-skills',
@@ -7,7 +7,7 @@ import { ISkills } from '../models/ISkills';
   styleUrls: ['../home/home.component.css'],
 })
 export class SkillsComponent implements OnInit {
-  skills: ISkills;
+  skills: ISkill;
   constructor() {}
 
   ngOnInit(): void {}

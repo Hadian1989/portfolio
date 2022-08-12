@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
 import { IEducation } from '../models/IEducation';
 import { IJob } from '../models/IJob';
 import { IUser } from '../models/IUser';
+import { ISkill } from '../models/ISkills';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
@@ -17,8 +18,6 @@ const httpOptions = {
 export class ApiService {
   constructor(private http: HttpClient) {}
 
-
-  
   getUserDetail(): Observable<IUser> {
     return this.http.get<IUser>(`${environment.apiUrl}/api/user/`);
   }
@@ -45,6 +44,10 @@ export class ApiService {
   getWorkExperienceDetail(job_id: number): Observable<IJob> {
     return this.http.get<any>(`${environment.apiUrl}/api/job/${job_id}`);
   }
+  getSkills(): Observable<ISkill> {
+    return this.http.get<any>(`${environment.apiUrl}/api/skill/`);
+  }
+
 
   updateProjectDetail(data: IProject) {
     return this.http.patch<IProject>(
@@ -82,6 +85,13 @@ export class ApiService {
     return this.http.post<IJob>(
       `${environment.apiUrl}/api/job/`,
       job_data,
+      httpOptions
+    );
+  }
+  addSkills(skill_data: string): Observable<ISkill> {
+    return this.http.post<any>(
+      `${environment.apiUrl}/api/skill/`,
+      skill_data,
       httpOptions
     );
   }
