@@ -12,6 +12,9 @@ import { DiaryComponent } from 'src/app/diary/diary.component';
 import { DiaryDetailsComponent } from 'src/app/diary-details/diary-details.component';
 import { EducationComponent } from 'src/app/education/education.component';
 import { ProjectDetailsComponent } from 'src/app/project-details/project-details.component';
+import { HomeComponent } from 'src/app/home/home.component';
+import { JobComponent } from 'src/app/job/job.component';
+import { SkillsComponent } from 'src/app/skills/skills.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +22,7 @@ import { ProjectDetailsComponent } from 'src/app/project-details/project-details
     AboutComponent,
     HeaderComponent,
     BaseComponent,
+    HomeComponent,
     ProjectsComponent,
     ProjectDetailsComponent,
     BlogComponent,
@@ -27,8 +31,10 @@ import { ProjectDetailsComponent } from 'src/app/project-details/project-details
     ToDoListComponent,
     DiaryComponent,
     DiaryDetailsComponent,
+    JobComponent,
+    SkillsComponent,
   ],
   imports: [CommonModule],
-  exports: [],
+  exports: [EducationComponent, HomeComponent, JobComponent, SkillsComponent],
 })
 export class MainModule {}

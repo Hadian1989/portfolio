@@ -1,12 +1,23 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { IToken } from '../models/IToken';
+
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
   constructor(private http: HttpClient) {}
+  login(user: { email: string; password: string }): Observable<IToken> {
+    return this.http.post<IToken>(`${environment.apiUrl}/authent/token`, user, {
+      headers: {
+        skip: 'true',
+      },
+    });
+  }
+
   refreshToken() {
     return this.http.post<any>(
       `${environment.apiUrl}/authent/token/refresh`,

@@ -4,7 +4,7 @@ import { IEducation } from '../models/IEducation';
 @Component({
   selector: 'app-education',
   templateUrl: './education.component.html',
-  styleUrls: ['./education.component.css'],
+  styleUrls: ['../home/home.component.css'],
 })
 export class EducationComponent implements OnInit {
   education: IEducation[];
