@@ -6,6 +6,7 @@ import { ContactComponent } from 'src/app/contact/contact.component';
 import { DiaryDetailsComponent } from 'src/app/diary-details/diary-details.component';
 import { FooterComponent } from 'src/app/footer/footer.component';
 import { HomeComponent } from 'src/app/home/home.component';
+import { LoginComponent } from 'src/app/login/login.component';
 import { NavbarComponent } from 'src/app/navbar/navbar.component';
 import { ProjectDetailsComponent } from 'src/app/project-details/project-details.component';
 import { ProjectsComponent } from 'src/app/projects/projects.component';
@@ -13,15 +14,15 @@ import { ResumeComponent } from 'src/app/resume/resume.component';
 import { ToDoListComponent } from 'src/app/to-do-list/to-do-list.component';
 
 const routes: Routes = [
-  { path: '', pathMatch: 'full', redirectTo: '/dashboard' },
-  { path: 'home', component: HomeComponent },
+  { path: '', component: HomeComponent },
+  { path: 'login', component: LoginComponent },
   { path: 'about', component: AboutComponent },
   {
     path: 'project',
     component: ProjectsComponent,
     children: [
       {
-        path: 'detail',
+        path: ':id/detail',
         component: ProjectDetailsComponent,
       },
     ],
@@ -52,10 +53,11 @@ const routes: Routes = [
     ],
   },
   { path: 'footer', component: FooterComponent },
+  { path: '*', redirectTo: '' },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' })],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class RoutingModule {}

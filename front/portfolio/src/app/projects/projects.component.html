@@ -1,4 +1,4 @@
-
+<!-- 
 <div class="container my-2">
   <h2 class="text-center my-3 py-3">
     My Projects
@@ -11,11 +11,13 @@
         <div class="card-body">
           <h5 class="card-title">{{project.pk}}: {{project.title}}</h5>
           <p class="card-text">{{project.description | truncatewords:20}}.</p>
-          <a href="{% url 'home:project-detail' project.slug %}" class="btn btn-primary">Click for demo</a>
+          <a href="#" class="btn btn-primary">
+            <app-project-detail></app-project-detail>
+          </a>
         </div>
         <div class="card-footer text-muted">{{project.status}}</div>
       </div>
     </div>
 
   </div>
-</div>
+</div> -->

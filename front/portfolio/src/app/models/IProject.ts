@@ -1,7 +1,10 @@
 export interface IProject {
-  name: string;
+  pk: number;
+  title: string;
   start_at: string;
-  end_at: string | null;
+  finished_at: string | null;
   technology: string[];
-  type: string;
+  status: boolean;
+  image: string;
+  description: string;
 }
