@@ -15,6 +15,7 @@ import { ProjectDetailsComponent } from 'src/app/project-details/project-details
 import { HomeComponent } from 'src/app/home/home.component';
 import { JobComponent } from 'src/app/job/job.component';
 import { SkillsComponent } from 'src/app/skills/skills.component';
+import { FooterComponent } from 'src/app/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -33,8 +34,15 @@ import { SkillsComponent } from 'src/app/skills/skills.component';
     DiaryDetailsComponent,
     JobComponent,
     SkillsComponent,
+    FooterComponent,
   ],
   imports: [CommonModule],
-  exports: [EducationComponent, HomeComponent, JobComponent, SkillsComponent],
+  exports: [
+    EducationComponent,
+    HomeComponent,
+    JobComponent,
+    SkillsComponent,
+    FooterComponent,
+  ],
 })
 export class MainModule {}
